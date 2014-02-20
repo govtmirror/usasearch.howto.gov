@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="refresh" content="0;url=/blog/spotlight-broward-county-florida.html" />
+</head>
+</html>
+<article class="article">
+  <div class='time'>
+    {% for tag in page.tags %}{% if tag == 'how-to' %}
+    <span>Last updated on:</span>
+    {% endif %}{% endfor %}
+    <a href="{{ page.url }}">
+      <time>{{ page.date | date: "%B %-d, %Y" }}</time>
+    </a>
+  </div>
+
+  {% unless page.category == 'quote' %}
+  <h1>
+    <a href="{{ page.url }}">{{ page.title }}</a>
+  </h1>
+  {% endunless %}
+
+  <div class='post-content'>
+    {{ content }}
+  </div>
+
+  <div class='tags'>
+    {% for tag in page.tags %}
+    <a href="/tagged/{{ tag }}"><span class="label label-info">{{ tag }}</span></a>
+    {% endfor %}
+  </div>
+</article>
